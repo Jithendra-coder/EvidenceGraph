@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f5" />
+    <meta name="description" content="EvidenceGraph makes financial research traceable to its source." />
+    <title>EvidenceGraph — Research workspace</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/media/favicon.svg" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#dashboard" data-page="dashboard" aria-label="EvidenceGraph home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-name">evidence<span>graph</span></span>
+        </a>
+        <div class="workspace-switcher"><span class="workspace-avatar">R</span><span class="workspace-copy"><strong>Research workspace</strong><small>Private instance</small></span><span class="chevron">⌄</span></div>
+        <p class="nav-label">WORKSPACE</p>
+        <nav class="nav-list">
+          <button class="nav-link active" data-page="dashboard"><span class="nav-icon">◫</span><span>Overview</span></button>
+          <button class="nav-link" data-page="research"><span class="nav-icon">⌕</span><span>Research</span></button>
+          <button class="nav-link" data-page="companies"><span class="nav-icon">◉</span><span>Companies</span></button>
+          <button class="nav-link" data-page="documents"><span class="nav-icon">▤</span><span>Documents</span><span class="nav-count" id="document-count">0</span></button>
+          <button class="nav-link" data-page="comparison"><span class="nav-icon">▥</span><span>Comparisons</span></button>
+          <button class="nav-link" data-page="reports"><span class="nav-icon">▧</span><span>Reports</span></button>
+        </nav>
+        <p class="nav-label nav-label-spaced">QUALITY</p>
+        <nav class="nav-list"><button class="nav-link" data-page="evaluation"><span class="nav-icon">⌗</span><span>Evaluation lab</span></button></nav>
+        <div class="sidebar-bottom">
+          <div class="source-status" id="sidebar-status"><span class="status-dot"></span><span><strong>Checking sources</strong><small>Local index</small></span></div>
+          <button class="nav-link settings-link" data-page="settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+          <div class="sidebar-user"><span class="user-avatar" id="sidebar-user-avatar">R</span><span><strong id="sidebar-user-name">Researcher</strong><small id="sidebar-user-email">Signed-in account</small></span></div>
+        </div>
+      </aside>
+      <div class="app-content">
+        <header class="topbar">
+          <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-sep">/</span><strong id="page-crumb">Overview</strong></div>
+          <div class="topbar-actions"><span class="local-pill" id="workspace-mode"><span class="status-dot"></span> Private workspace</span><span class="topbar-date" id="today-date"></span><button class="top-avatar" id="top-avatar" aria-label="Researcher">R</button><button class="sign-out-link" id="sign-out" type="button" hidden>Sign out</button></div>
+        </header>
+        <main id="main" tabindex="-1"><div class="loading-state"><span class="spinner"></span><span>Opening your workspace…</span></div></main>
+        <footer class="page-footer"><span>EvidenceGraph <span id="app-version">1.0</span></span><span>Research support · Verify every source</span></footer>
+      </div>
+    </div>
+    <div class="mobile-scrim" id="mobile-scrim"></div>
+    <dialog class="evidence-dialog" id="evidence-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><div><span class="eyebrow">SOURCE DOCUMENT</span><h2 id="dialog-title">Evidence viewer</h2></div><button class="icon-button" data-action="close-dialog" aria-label="Close">×</button></div><div id="dialog-body"></div></dialog>
+    <dialog class="evidence-dialog demo-dialog" id="demo-dialog" aria-labelledby="demo-title" aria-describedby="demo-description"><div class="dialog-top"><div><span class="eyebrow">A 90-SECOND WALKTHROUGH</span><h2 id="demo-title">From question to source</h2></div><button class="icon-button" data-action="close-demo" aria-label="Close walkthrough">×</button></div><div class="demo-body"><p id="demo-description" class="page-subtitle">See how a research question becomes a reviewable note with filing evidence, financial facts, and source links.</p><ol class="demo-steps"><li><span class="step-number">01</span><span><strong>Set up your sources</strong><small>Choose public companies and sync the 10-K or 10-Q filings you need.</small><em>About 20 sec</em></span></li><li><span class="step-number">02</span><span><strong>Ask and inspect</strong><small>Run a focused question, compare reported facts with indexed passages, then open a citation.</small><em>About 40 sec</em></span></li><li><span class="step-number">03</span><span><strong>Compare and export</strong><small>Review comparable annual periods and export a Markdown note with links and caveats.</small><em>About 30 sec</em></span></li></ol><div class="demo-footer"><span>Use the live values in your workspace; no sample results are shown.</span><button class="button primary" id="demo-start" data-action="begin-demo">Begin walkthrough <span aria-hidden="true">→</span></button></div></div></dialog>
+    <div class="toast-region" id="toasts" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

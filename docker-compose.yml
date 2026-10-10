@@ -1,0 +1,39 @@
+services:
+  evidencegraph:
+    build: .
+    ports:
+      - "127.0.0.1:8001:8000"
+    environment:
+      EVIDENCEGRAPH_ENV: production
+      EVIDENCEGRAPH_AUTH_MODE: oidc
+      EVIDENCEGRAPH_DATA_DIR: /app/data
+      EVIDENCEGRAPH_PUBLIC_BASE_URL: ${EVIDENCEGRAPH_PUBLIC_BASE_URL:?Set the HTTPS public URL}
+      EVIDENCEGRAPH_ALLOWED_HOSTS: ${EVIDENCEGRAPH_ALLOWED_HOSTS:?Set the public hostname}
+      EVIDENCEGRAPH_SESSION_SECRET: ${EVIDENCEGRAPH_SESSION_SECRET:?Set a random session secret}
+      EVIDENCEGRAPH_OIDC_DISCOVERY_URL: ${EVIDENCEGRAPH_OIDC_DISCOVERY_URL:?Set the OIDC discovery URL}
+      EVIDENCEGRAPH_OIDC_CLIENT_ID: ${EVIDENCEGRAPH_OIDC_CLIENT_ID:?Set the OIDC client ID}
+      EVIDENCEGRAPH_OIDC_CLIENT_SECRET: ${EVIDENCEGRAPH_OIDC_CLIENT_SECRET:?Set the OIDC client secret}
+      EVIDENCEGRAPH_ALLOWED_EMAILS: ${EVIDENCEGRAPH_ALLOWED_EMAILS:-}
+      EVIDENCEGRAPH_ALLOWED_EMAIL_DOMAINS: ${EVIDENCEGRAPH_ALLOWED_EMAIL_DOMAINS:-}
+      EVIDENCEGRAPH_LLM_BASE_URL: ${EVIDENCEGRAPH_LLM_BASE_URL:-}
+      EVIDENCEGRAPH_LLM_MODEL: ${EVIDENCEGRAPH_LLM_MODEL:-}
+      EVIDENCEGRAPH_LLM_API_KEY: ${EVIDENCEGRAPH_LLM_API_KEY:-}
+      EVIDENCEGRAPH_LLM_MAX_TOKENS: ${EVIDENCEGRAPH_LLM_MAX_TOKENS:-1200}
+    volumes:
+      - evidencegraph-data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  evidencegraph-data:

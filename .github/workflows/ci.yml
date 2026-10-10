@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - run: python -m ruff check backend tests
+      - run: python -m ruff format --check backend tests
+      - run: python -m compileall -q backend
+      - run: node --check frontend/app.js
+      - run: python docs/portfolio-diagrams/render_diagrams.py
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Compose deployment configuration
+        env:
+          EVIDENCEGRAPH_PUBLIC_BASE_URL: https://evidencegraph.example.test
+          EVIDENCEGRAPH_ALLOWED_HOSTS: evidencegraph.example.test
+          EVIDENCEGRAPH_SESSION_SECRET: ci-only-session-secret-at-least-32-characters
+          EVIDENCEGRAPH_OIDC_DISCOVERY_URL: https://identity.example.test/.well-known/openid-configuration
+          EVIDENCEGRAPH_OIDC_CLIENT_ID: ci-client
+          EVIDENCEGRAPH_OIDC_CLIENT_SECRET: ci-secret
+          EVIDENCEGRAPH_ALLOWED_EMAIL_DOMAINS: example.test
+        run: docker compose config --quiet
+      - name: Build production image
+        run: docker build -t evidencegraph:ci .
+      - name: Smoke test production configuration and readiness
+        shell: bash
+        run: |
+          container_id=$(docker run -d --publish 127.0.0.1:8000:8000 \
+            --env EVIDENCEGRAPH_ENV=production \
+            --env EVIDENCEGRAPH_AUTH_MODE=oidc \
+            --env EVIDENCEGRAPH_DATA_DIR=/app/data \
+            --env EVIDENCEGRAPH_PUBLIC_BASE_URL=https://evidencegraph.example.test \
+            --env EVIDENCEGRAPH_ALLOWED_HOSTS=evidencegraph.example.test,127.0.0.1 \
+            --env EVIDENCEGRAPH_SESSION_SECRET=ci-only-session-secret-at-least-32-characters \
+            --env EVIDENCEGRAPH_OIDC_DISCOVERY_URL=https://identity.example.test/.well-known/openid-configuration \
+            --env EVIDENCEGRAPH_OIDC_CLIENT_ID=ci-client \
+            --env EVIDENCEGRAPH_OIDC_CLIENT_SECRET=ci-secret \
+            --env EVIDENCEGRAPH_ALLOWED_EMAIL_DOMAINS=example.test \
+            evidencegraph:ci)
+          trap 'docker rm -f "$container_id" >/dev/null 2>&1 || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error -H 'Host: evidencegraph.example.test' \
+              http://127.0.0.1:8000/api/v1/health/ready; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs "$container_id"
+          exit 1

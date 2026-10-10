@@ -1,0 +1,28 @@
+{
+  "version": "synthetic-baseline-1.0",
+  "note": "Synthetic retrieval-only fixtures; they contain no real company facts and cannot validate financial accuracy.",
+  "passages": [
+    {"id":"S01","text":"The company depends on two specialist suppliers for server components. A disruption lasting more than thirty days could delay cloud infrastructure deliveries and increase operating costs."},
+    {"id":"S02","text":"Research and development expense increased as the company hired engineers for its new security platform. The annual report identifies higher payroll and cloud hosting costs as drivers of operating expense."},
+    {"id":"S03","text":"Harbor Foods recorded revenue of 4.2 billion dollars for fiscal year 2024, compared with 3.8 billion dollars in fiscal year 2023."},
+    {"id":"S04","text":"Operating cash flow was 920 million dollars in fiscal year 2024. The cash flow statement attributes the increase partly to collections of trade receivables."},
+    {"id":"S05","text":"A cybersecurity incident could expose customer information. The company uses access controls, encryption, incident exercises, and external security assessments to reduce this risk."},
+    {"id":"S06","text":"The company leases its office and data center properties. Future minimum operating lease payments total 610 million dollars, with the largest payments due within five years."},
+    {"id":"S07","text":"Remaining performance obligations were 7.4 billion dollars at year end. This contracted backlog is expected to be recognized as revenue over the next three fiscal years."},
+    {"id":"S08","text":"Foreign currency movements affected reported results. A stronger US dollar reduced translated international revenue by 180 million dollars during the year."},
+    {"id":"S09","text":"A former distributor filed a commercial lawsuit alleging breach of contract. The company disputes the allegations and states that the outcome cannot currently be estimated."},
+    {"id":"S10","text":"The company reports three operating segments: North America, Europe, and Asia Pacific. Segment revenue is reviewed by the chief operating decision maker each quarter."}
+  ],
+  "questions": [
+    {"question":"Which supplier interruption could delay infrastructure deliveries?","relevant":["S01"]},
+    {"question":"What increased research and development and operating expenses?","relevant":["S02"]},
+    {"question":"What was Harbor Foods revenue in fiscal year 2024?","relevant":["S03"]},
+    {"question":"How much operating cash flow did the company report and why?","relevant":["S04"]},
+    {"question":"What customer data cybersecurity safeguards are disclosed?","relevant":["S05"]},
+    {"question":"What are future lease payment obligations?","relevant":["S06"]},
+    {"question":"How much contracted backlog remains and when is it recognized?","relevant":["S07"]},
+    {"question":"How did foreign currency exchange rates affect international sales?","relevant":["S08"]},
+    {"question":"What commercial legal proceeding is disclosed?","relevant":["S09"]},
+    {"question":"Which operating segments does management review?","relevant":["S10"]}
+  ]
+}

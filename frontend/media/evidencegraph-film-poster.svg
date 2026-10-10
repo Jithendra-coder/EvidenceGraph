@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#213F32"/><stop offset="1" stop-color="#14291F"/></linearGradient>
+    <linearGradient id="panel" x1="790" y1="184" x2="1130" y2="554" gradientUnits="userSpaceOnUse"><stop stop-color="#F8FAF5"/><stop offset="1" stop-color="#E7EDE5"/></linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1280v720H0z"/>
+  <circle cx="1003" cy="334" r="280" stroke="#93B59A" stroke-opacity=".13"/>
+  <circle cx="1003" cy="334" r="218" stroke="#93B59A" stroke-opacity=".12"/>
+  <path d="M816 486 923 390l78 42 144-173" stroke="#A8CEAC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="816" cy="486" r="7" fill="#A8CEAC"/><circle cx="923" cy="390" r="7" fill="#A8CEAC"/><circle cx="1001" cy="432" r="7" fill="#A8CEAC"/><circle cx="1145" cy="259" r="7" fill="#A8CEAC"/>
+  <rect x="779" y="142" width="360" height="390" rx="8" fill="url(#panel)" stroke="#CFDCCF"/>
+  <path d="M814 187h163" stroke="#6A8E72" stroke-width="3" stroke-linecap="round"/>
+  <text x="814" y="230" fill="#66776B" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2">THE EVIDENCE TRAIL</text>
+  <rect x="814" y="267" width="286" height="74" rx="5" fill="#fff" stroke="#D8E2D8"/>
+  <text x="834" y="296" fill="#526359" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">A RESEARCH QUESTION</text>
+  <path d="M834 317h212m-212 11h159" stroke="#E1E8E1" stroke-width="5" stroke-linecap="round"/>
+  <rect x="814" y="373" width="137" height="76" rx="5" fill="#fff" stroke="#D8E2D8"/>
+  <rect x="963" y="373" width="137" height="76" rx="5" fill="#fff" stroke="#D8E2D8"/>
+  <text x="830" y="400" fill="#526359" font-family="Arial,sans-serif" font-size="10" font-weight="700">FILING PASSAGE</text>
+  <text x="979" y="400" fill="#526359" font-family="Arial,sans-serif" font-size="10" font-weight="700">ANNUAL SEC FACT</text>
+  <path d="M830 420h102m-102 11h80M979 421h103m-103 11h73" stroke="#E1E8E1" stroke-width="4" stroke-linecap="round"/>
+  <rect x="814" y="471" width="286" height="39" rx="5" fill="#E8F0E7"/>
+  <circle cx="835" cy="490" r="8" fill="#367054"/>
+  <path d="m831 490 3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="851" y="494" fill="#294C38" font-family="Arial,sans-serif" font-size="12" font-weight="600">REVIEWABLE RESEARCH NOTE</text>
+  <g transform="translate(82 79)"><rect width="34" height="34" rx="10" fill="#47785B"/><path d="m8 24 7-7 5 4 7-10" stroke="#EEF5ED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="24" r="1.5" fill="#EEF5ED"/><circle cx="15" cy="17" r="1.5" fill="#EEF5ED"/><circle cx="20" cy="21" r="1.5" fill="#EEF5ED"/><circle cx="27" cy="11" r="1.5" fill="#EEF5ED"/></g>
+  <text x="130" y="102" fill="#F2F5EF" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="-.5">evidence</text><text x="194" y="102" fill="#B8D0BC" font-family="Arial,sans-serif" font-size="16" letter-spacing="-.5">graph</text>
+  <text x="82" y="244" fill="#BBD4BE" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2.4">FINANCIAL RESEARCH · SOURCE-LINKED</text>
+  <text x="82" y="333" fill="#F4F4EE" font-family="Georgia,serif" font-size="63">A financial answer</text>
+  <text x="82" y="411" fill="#F4F4EE" font-family="Georgia,serif" font-size="63">should show its work.</text>
+  <text x="82" y="474" fill="#CAD7CA" font-family="Arial,sans-serif" font-size="19">SEC filings · Annual facts · Reviewable notes</text>
+  <text x="82" y="641" fill="#96B69C" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2">EVIDENCEGRAPH PRODUCT FILM</text>
+</svg>

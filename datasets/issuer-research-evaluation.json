@@ -1,0 +1,137 @@
+{
+  "version": "issuer-research-evaluation-1.0",
+  "protocol": "Anchor phrases were checked against the cited SEC filing. Walmart and Costco queries form the development set. Apple is an issuer-held-out diagnostic. Literal anchor retrieval is not a full semantic relevance or answer-accuracy judgment.",
+  "sources": [
+    {
+      "split": "development",
+      "company": "Walmart Inc.",
+      "cik": "0000104169",
+      "form": "10-K",
+      "accession": "0000104169-26-000055",
+      "reportDate": "2026-01-31",
+      "filingUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "revenue": {
+        "fiscalYear": 2026,
+        "value": "713163000000",
+        "periodEnd": "2026-01-31",
+        "priorFiscalYear": 2025,
+        "priorValue": "680985000000",
+        "priorPeriodEnd": "2025-01-31"
+      }
+    },
+    {
+      "split": "development",
+      "company": "Costco Wholesale Corporation",
+      "cik": "0000909832",
+      "form": "10-K",
+      "accession": "0000909832-26-000093",
+      "reportDate": "2026-08-30",
+      "filingUrl": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
+      "revenue": {
+        "fiscalYear": 2026,
+        "value": "303154000000",
+        "periodEnd": "2026-08-30",
+        "priorFiscalYear": 2025,
+        "priorValue": "275235000000",
+        "priorPeriodEnd": "2025-08-31"
+      }
+    },
+    {
+      "split": "holdout",
+      "company": "Apple Inc.",
+      "cik": "0000320193",
+      "form": "10-K",
+      "accession": "0000320193-25-000079",
+      "reportDate": "2025-09-27",
+      "filingUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "revenue": {
+        "fiscalYear": 2025,
+        "value": "416161000000",
+        "periodEnd": "2025-09-27",
+        "priorFiscalYear": 2024,
+        "priorValue": "391035000000",
+        "priorPeriodEnd": "2024-09-28"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "split": "development",
+      "cik": "0000104169",
+      "question": "How does Walmart connect stores with online shopping for pickup and delivery?",
+      "relevantAnchors": ["same-day pickup and delivery"]
+    },
+    {
+      "split": "development",
+      "cik": "0000104169",
+      "question": "Why did Walmart membership and other income grow?",
+      "relevantAnchors": ["double-digit growth in membership fee revenue"]
+    },
+    {
+      "split": "development",
+      "cik": "0000104169",
+      "question": "Which competitors does Walmart identify across its business segments?",
+      "relevantAnchors": ["social commerce platforms"]
+    },
+    {
+      "split": "development",
+      "cik": "0000104169",
+      "question": "What delivery capabilities has Walmart invested in?",
+      "relevantAnchors": ["fulfillment and delivery capabilities"]
+    },
+    {
+      "split": "development",
+      "cik": "0000909832",
+      "question": "What were Costco membership fees over the last three fiscal years?",
+      "relevantAnchors": ["5,907"]
+    },
+    {
+      "split": "development",
+      "cik": "0000909832",
+      "question": "Which membership factors influence Costco profitability?",
+      "relevantAnchors": ["high renewal rates"]
+    },
+    {
+      "split": "development",
+      "cik": "0000909832",
+      "question": "How does Costco's e-commerce business complement its warehouses?",
+      "relevantAnchors": ["e-commerce operations give members convenience"]
+    },
+    {
+      "split": "development",
+      "cik": "0000909832",
+      "question": "What are Costco's core merchandise categories?",
+      "relevantAnchors": ["foods and sundries, non-foods, and fresh foods"]
+    },
+    {
+      "split": "holdout",
+      "cik": "0000320193",
+      "question": "What competitive pressures does Apple report in its product and service markets?",
+      "relevantAnchors": ["aggressive price competition"]
+    },
+    {
+      "split": "holdout",
+      "cik": "0000320193",
+      "question": "How does Apple describe the geographic reach of its supply chain?",
+      "relevantAnchors": ["global supply chain is large and complex"]
+    },
+    {
+      "split": "holdout",
+      "cik": "0000320193",
+      "question": "What supply constraint can occur when Apple components use new technologies?",
+      "relevantAnchors": ["initial capacity constraints"]
+    },
+    {
+      "split": "holdout",
+      "cik": "0000320193",
+      "question": "How much Services net sales did Apple report for fiscal 2025?",
+      "relevantAnchors": ["109,158"]
+    },
+    {
+      "split": "holdout",
+      "cik": "0000320193",
+      "question": "What total net sales did Apple report for fiscal 2025?",
+      "relevantAnchors": ["416,161"]
+    }
+  ]
+}
